@@ -1,0 +1,36 @@
+<div class="container theme-showcase" role="main">    
+  {{ carousel | raw}}    
+                     
+  <!-- Main jumbotron for a primary marketing message or call to action -->     
+  <div class="jumbotron">        
+    <h1>{{ nadpis1 }}</h1>
+    
+        {{ hodnoceni|raw  }}
+      
+     
+    <div class="row">            
+      <div class="col-md-4">              
+        <h2>Ingredience</h2>          
+          <table class="table table-hover">                   
+          {{ ingred | raw }}                           
+          </table> 
+      </div>          
+    </div>                  
+    <h2>Postup</h2> 
+    <blockquote>
+      <p>{{ postup|raw }} </p>
+      <footer>Tento recept přidal {{ uzivatel|raw }}<cite>{{ upravit|raw }}</cite></footer>
+    </blockquote>        
+         
+  </div>           
+  <!-- FOOTER -->     
+  {% include 'sablona_footer.html' %}     
+</div>    
+    <!-- Bootstrap core JavaScript
+        ================================================== -->    
+    <!-- Placed at the end of the document so the pages load faster -->    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>    
+    <script src="public/css/bootstrap/dist/js/bootstrap.min.js"></script>    
+    <script src="public/css/bootstrap/assets/js/docs.min.js"></script>  
+</body>
+</html>

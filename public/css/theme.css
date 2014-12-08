@@ -1,0 +1,88 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+.navbar .container { 
+  height: 50px; 
+}
+
+
+.navbar .collapse .dropdown-menu {
+  font-size: 14px;
+}
+.navbar-toggle .collapsed{
+    font-size: 30px;
+}
+
+.navbar .collapse {
+  font-size: 20px;
+}
+
+.navbar .navbar-brand {
+  font-size: 32px;
+}
+.carousel-inner > .item > img {
+    margin: 0 auto;
+    height: 480px;
+}
+
+.carousel{
+margin: 20px ;
+}
+
+.table{
+border-collapse: collapse;
+}
+
+a:hover {
+text-decoration: none;
+}
+
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+.featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
+
+
+textarea {
+ max-width: 430px; 
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="eKuchařka - recepty z celého světa.">
+    <meta name="author" content="Albert Štefankovič">
+
+    <title>eKuchařka</title>
+    
+    <link href="public/css/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="public/css/theme.css" rel="stylesheet">
+    <link href="public/css/iHover/ihover.css" rel="stylesheet">      
+    <script src="public/css/bootstrap/assets/js/ie-emulation-modes-warning.js"></script> 
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="public/css/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="public/ckeditor/ckeditor.js"></script>
+
+
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>            
+          <a class="navbar-brand" href="?page=uvod">eKuchařka</a>
+        </div>
+        
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li {{ uvod }}><a href="?page=uvod">Domů</a></li>
+            
+            <li {{ recipes_alphabet }} {{ recipes }} {{ new_recipes }} {{ recipes_one }} {{ users_recipes }} {{ change_recipes }} {{ nejlepsi_hodnoceni }} class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Recepty <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li {{ recipes_alphabet }}><a href="?page=recipes_alphabet">Vyhledat podle abecedy</a></li>
+                <li {{ nejlepsi_hodnoceni }}><a href="?page=nejlepsi_hodnoceni">10 nejlepších receptů</a></li>
+                <li><a href="?page=recipes">Náhodně vybraný recept</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Uživatel</li>
+                <li {{ new_recipes }}><a href="?page=new_recipes">Nový recept</a></li>
+                <li  {{ users_recipes }}><a href="?page=users_recipes">Moje recepty</a></li>
+              </ul>
+            </li>
+            
+            <li {{ contact }}><a href="?page=contact">Kontakt</a></li>           
+          </ul>          
+          <ul class="nav navbar-nav pull-right">
+            <li {{ user_settings }} {{ users_alphabet }} class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ uzivatel }} <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li>{{ prihlasit | raw }}</li>
+                <li {{ change_recipes }}><a href="?page=new_recipes">Nový recept</a></li>
+                {{ uzivatele | raw }}
+                <li {{ users_recipes }}><a href="?page=users_recipes">Moje recepty</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nastavení</li>
+                <li {{ user_settings }}><a href="?page=user_settings">Moje údaje</a></li>
+              </ul>
+            </li>
+          </ul>       
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    
+    
+      <!-- Modal <button type="submit" class="btn btn-success">Přihlásit se</button>      -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zavřít</span></button>
+              <h4 class="modal-title" id="myModalLabel">Přihlášení (registrace) uživatele</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" method="POST" action="/web/application/config/sign.php">
+                     <div class="alert alert-warning" role="alert">
+                     <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+                    Nemáte ještě účet? Registrujte se 
+                    <a class="btn btn-info" type="button" href="?page=registration">Chci se zaregistrovat <span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                    </div> 
+                    <br>
+                    Přezdívka: <input type="text" placeholder="Přezdívka" class="form-control" id="prezdivka" name="nick">
+                    <br>	                  
+                    Heslo: <input type="password" placeholder="Heslo" class="form-control" name ="pass">   
+                    <br>
+                    <input type="submit" class="btn btn-success" value="Odeslat">
+                 </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+                      
+            </div>                                                 
+          </div>
+        </div>
+      </div>
+
