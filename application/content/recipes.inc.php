@@ -211,7 +211,7 @@
       
       if($userNick == $jmenoTvurceReceptu || (isset($_SESSION["admin"]) && $_SESSION["admin"] == 1))
         {
-          $template_params["upravit"] =  '. <a href="?page=change_recipes&id='.$idReceptu.'">Upravit</a> tento recept.';
+          $template_params["upravit"] =  '. <a href="?page=change_recipes&amp;id='.$idReceptu.'">Upravit</a> tento recept.';
         }
   }
   
@@ -226,8 +226,9 @@
                  $hodnota3 = "";
                  $hodnota4 = "";
                  $hodnota5 = "";
+                 $hodnota6 = "";
               
-              $uzivateleAll = $uzivatele ->  GetUzivatelOnlyByNick($userNick);
+              $uzivateleAll = $uzivatele -> GetUzivatelOnlyByNick($userNick);
               $idHodnoticiho =  $uzivateleAll["id_uzivatel"];
         
               $hodnoceneReceptyUzivatele = $hodnoceni -> LoadAllHodnoceniUsera($idHodnoticiho)   ;
@@ -257,20 +258,26 @@
                     case 5:
                        $hodnota5 = 'selected="selected"';
                         break;
+                    default:
+                      $hodnota6 = 'selected="selected"';
                   }
             }
-            
+            else
+            {
+              $hodnota6 = 'selected="selected"';
+            }
         
           $template_params["hodnoceni"] = '     
                                                 <form class="form form-horizontal" role="form" method="POST">
                                                 <div class="row">   
                                                  <div class="col-md-2"> 
                                                       <select class="form-control glyphicon" name="hodnoceniU">
-                                                          <option value = "1"'.$hodnota1.'>&#xe006;</option>
-                                                          <option value = "2"'.$hodnota2.'>&#xe006;&#xe006;</option>
-                                                          <option value = "3"'.$hodnota3.'>&#xe006;&#xe006;&#xe006;</option>
-                                                          <option value = "4"'.$hodnota4.'>&#xe006;&#xe006;&#xe006;&#xe006;</option>
-                                                          <option value = "5"'.$hodnota5.'>&#xe006;&#xe006;&#xe006;&#xe006;&#xe006;</option>
+                                                          <option value = "1" '.$hodnota1.'>&#xe006;</option>
+                                                          <option value = "2" '.$hodnota2.'>&#xe006;&#xe006;</option>
+                                                          <option value = "3" '.$hodnota3.'>&#xe006;&#xe006;&#xe006;</option>
+                                                          <option value = "4" '.$hodnota4.'>&#xe006;&#xe006;&#xe006;&#xe006;</option>
+                                                          <option value = "5" '.$hodnota5.'>&#xe006;&#xe006;&#xe006;&#xe006;&#xe006;</option>
+                                                          <option value = "6" '.$hodnota6.'>Vyberte</option>
                                                       </select>
                                                       
                                                     </div>
@@ -299,42 +306,53 @@
                   
               }
               
-         
-           switch ($hodnoceniUzivatelem) 
-                  {
-                    case 1:
-                       $hodnota = 1;
-                        break;
-                    case 2:
-                        $hodnota = 2;
-                        break;
-                    case 3:
-                       $hodnota = 3;
-                        break;
-                    case 4:
-                       $hodnota = 4;
-                        break;
-                    case 5:
-                       $hodnota = 5;
-                        break;
-                  }
-           
-           
-           
-           if($value == "")
-           {  
-                $hodnoceni ->  InsertHodnoceni($idHodnoticiho, $idReceptu, $hodnota);
-           }  
-           else
-           {  
-              
-                $hodnoceni ->   UpdateHodnoceni($idHodnoticiho, $idReceptu, $hodnota) ;
-           }  
-              //promenne slouzici ke spravnemu vyhodnoceni formu
+        if($hodnoceniUzivatelem != 6)
+        {
+             switch ($hodnoceniUzivatelem) 
+                    {
+                      case 1:
+                         $hodnota = 1;
+                          break;
+                      case 2:
+                          $hodnota = 2;
+                          break;
+                      case 3:
+                         $hodnota = 3;
+                          break;
+                      case 4:
+                         $hodnota = 4;
+                          break;
+                      case 5:
+                         $hodnota = 5;
+                          break;
+                    }
+             
+             
+             
+             if($value == "")
+             {  
+                  $hodnoceni ->  InsertHodnoceni($idHodnoticiho, $idReceptu, $hodnota);
+             }  
+             else
+             {  
+                
+                  $hodnoceni ->   UpdateHodnoceni($idHodnoticiho, $idReceptu, $hodnota) ;
+             }  
+                //promenne slouzici ke spravnemu vyhodnoceni formu
+              $template_params["hodnoceni"] = '     
+                                                 <p class="bg-success">Děkujeme za Vaše hodnocení. <a href="?page=recipes&id='.$idReceptu.'">Změnit.</a></p>
+                                           ';   
+              header('Refresh: 5'); 
+         }
+         else
+         {
+             //promenne slouzici ke spravnemu vyhodnoceni formu
             $template_params["hodnoceni"] = '     
-                                               <p class="bg-success">Děkujeme za Vaše hodnocení. <a href="?page=recipes&id='.$idReceptu.'">Změnit.</a></p>
+                                               <p class="bg-danger">Musíte vybrat počet hvězdiček, 1 hvězdička odpovídá nepoživatelnému jídlu, naopak 10 hvězdiček znamená jídlo z kvalitní restaurace. <a href="?page=recipes&id='.$idReceptu.'">Vybrat.</a></p>
                                          ';   
-            header('Refresh: 5');    
+            header('Refresh: 15'); 
+         
+         }   
       }
    }
                                 

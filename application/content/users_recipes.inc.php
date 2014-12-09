@@ -63,10 +63,10 @@
                   $id_receptu =  $recepty_data[$i]["id_recept"];
                                                
                   @$template_params["tabulka_paticka"] .= '                                                
-                                                            <tr class="clickableRow" href="?page=recipes&id='.$id_receptu.'">
-                                                              <td><a href="?page=recipes&id='.$id_receptu.'">'.$recepty_data[$i]["nazev"].'</a></td>
+                                                            <tr class="clickableRow" href="?page=recipes&amp;id='.$id_receptu.'">
+                                                              <td><a href="?page=recipes&amp;id='.$id_receptu.'">'.$recepty_data[$i]["nazev"].'</a></td>
                                                               
-                                                              <td><a href="?page=change_recipes&id='.$id_receptu.'">Editovat tento recept</a></td>
+                                                              <td><a href="?page=change_recipes&amp;id='.$id_receptu.'">Editovat tento recept</a></td>
                                                               
                                                               <td>'.$recepty_data[$i]["narocnost"].'</td>  
                                                               <td>'.$recepty_data[$i]["doba_pripravy_min"].' minut </td>  

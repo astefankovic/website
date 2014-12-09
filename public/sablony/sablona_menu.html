@@ -37,34 +37,34 @@
         
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li {{ uvod }}><a href="?page=uvod">Domů</a></li>
+            <li class="{{ uvod }}"><a href="?page=uvod">Domů</a></li>
             
-            <li {{ recipes_alphabet }} {{ recipes }} {{ new_recipes }} {{ recipes_one }} {{ users_recipes }} {{ change_recipes }} {{ nejlepsi_hodnoceni }} class="dropdown">
+            <li class="dropdown  {{ recipes_alphabet }} {{ recipes }} {{ new_recipes }} {{ recipes_one }} {{ users_recipes }} {{ change_recipes }} {{ nejlepsi_hodnoceni }}">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Recepty <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li {{ recipes_alphabet }}><a href="?page=recipes_alphabet">Vyhledat podle abecedy</a></li>
-                <li {{ nejlepsi_hodnoceni }}><a href="?page=nejlepsi_hodnoceni">10 nejlepších receptů</a></li>
+                <li class="{{ recipes_alphabet }}"><a href="?page=recipes_alphabet">Vyhledat podle abecedy</a></li>
+                <li class="{{ nejlepsi_hodnoceni }}"><a href="?page=nejlepsi_hodnoceni">10 nejlepších receptů</a></li>
                 <li><a href="?page=recipes">Náhodně vybraný recept</a></li>
                 <li class="divider"></li>
                 <li class="dropdown-header">Uživatel</li>
-                <li {{ new_recipes }}><a href="?page=new_recipes">Nový recept</a></li>
-                <li  {{ users_recipes }}><a href="?page=users_recipes">Moje recepty</a></li>
+                <li class="{{ new_recipes }}"><a href="?page=new_recipes">Nový recept</a></li>
+                <li  class="{{ users_recipes }}"><a href="?page=users_recipes">Moje recepty</a></li>
               </ul>
             </li>
             
-            <li {{ contact }}><a href="?page=contact">Kontakt</a></li>           
+            <li class="{{ contact }}"><a href="?page=contact">Kontakt</a></li>           
           </ul>          
           <ul class="nav navbar-nav pull-right">
-            <li {{ user_settings }} {{ users_alphabet }} class="dropdown">
+            <li class="dropdown {{ user_settings }} {{ users_alphabet }}">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ uzivatel }} <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li>{{ prihlasit | raw }}</li>
-                <li {{ change_recipes }}><a href="?page=new_recipes">Nový recept</a></li>
+                <li class="{{ change_recipes }}"><a href="?page=new_recipes">Nový recept</a></li>
                 {{ uzivatele | raw }}
-                <li {{ users_recipes }}><a href="?page=users_recipes">Moje recepty</a></li>
+                <li class="{{ users_recipes }}"><a href="?page=users_recipes">Moje recepty</a></li>
                 <li class="divider"></li>
                 <li class="dropdown-header">Nastavení</li>
-                <li {{ user_settings }}><a href="?page=user_settings">Moje údaje</a></li>
+                <li class="{{ user_settings }}"><a href="?page=user_settings">Moje údaje</a></li>
               </ul>
             </li>
           </ul>       
@@ -86,7 +86,7 @@
                      <div class="alert alert-warning" role="alert">
                      <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
                     Nemáte ještě účet? Registrujte se 
-                    <a class="btn btn-info" type="button" href="?page=registration">Chci se zaregistrovat <span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                    <a class="btn btn-info" href="?page=registration">Chci se zaregistrovat <span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
                     </div> 
                     <br>
                     Přezdívka: <input type="text" placeholder="Přezdívka" class="form-control" id="prezdivka" name="nick">

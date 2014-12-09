@@ -56,7 +56,7 @@
 	$template = $twig->loadTemplate('sablona_basic.html');   	
   $template_params = array();
   
-  $template_params["nadpis1"] = "Vítejte v nejlepší eKuchařce!";
+  $template_params["nadpis1"] = "Vítejte v eKuchařce!";
 	$template_params["obsah"] = 'Projekt eKuchařka vznikl jako semestrální práce z předmětu KIV/WEB.';  
   $template_params["tlacitko"] = '<a href="?page=contact" class="btn btn-primary btn-lg" role="button">Mám nápad na vylepšení &raquo;</a>';
   $template_params["variabilni_obsah"] = '
@@ -64,7 +64,7 @@
                                                       <hr class="featurette-divider">
                                                       <div class="row featurette">
                                                         <div class="col-md-7">
-                                                          <h2 class="featurette-heading"><a href="?page=recipes&id='.$idPrvnihoReceptu.'">Poslední přidaný recept. <span class="text-muted">'.$nazevPrvnihoReceptu.' </span></a></h2>
+                                                          <h2 class="featurette-heading"><a href="?page=recipes&amp;id='.$idPrvnihoReceptu.'">Poslední přidaný recept. <span class="text-muted">'.$nazevPrvnihoReceptu.' </span></a></h2>
                                                           <hr>
                                                           <p class="lead">'.$postupPrvnihoReceptuRozdelen.'....</p>
                                                         </div>
@@ -72,7 +72,7 @@
                                                         <div class="col-md-5">           
                                                             <!-- Bottom to top effect-->  
                                                                       <div class="ih-item square effect6 top_to_bottom">
-                                                                      <a href="?page=recipes&id='.$idPrvnihoReceptu.'">
+                                                                      <a href="?page=recipes&amp;id='.$idPrvnihoReceptu.'">
                                                                         <div class="img">
                                                                             '.$cestaFoto.'
                                                                         </div>

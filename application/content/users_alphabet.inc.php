@@ -56,8 +56,8 @@
                       $id_uzivatele =  $uzivatele_data[$i]["id_uzivatel"];
                                                    
                       @$template_params["tabulka_paticka"] .= '                                                
-                                                                <tr class="clickableRow" href="?page=user_settings&id='.$id_uzivatele.'">
-                                                                  <td><a href="?page=user_settings&id='.$id_uzivatele.'">'.$uzivatele_data[$i]["prezdivka"].'</a></td>
+                                                                <tr class="clickableRow" href="?page=user_settings&amp;id='.$id_uzivatele.'">
+                                                                  <td><a href="?page=user_settings&amp;id='.$id_uzivatele.'">'.$uzivatele_data[$i]["prezdivka"].'</a></td>
                                                                   <td>'.$uzivatele_data[$i]["jmeno"].'</td>  
                                                                   <td>'.$uzivatele_data[$i]["prijmeni"].'</td>  
                                                                   <td>'.$uzivatele_data[$i]["admin"].'</td>                                                  

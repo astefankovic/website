@@ -47,7 +47,7 @@
               $template_menu_params["uzivatel"] = "Uživatel";
               $template_menu_params["prihlasit"] = '<a href="#myModal" data-toggle="modal" data-target="#myModal">Přihlásit se / Registrovat se</a>';
             } 
-            $template_menu_params["$page"] = "class = active";                 
+            $template_menu_params["$page"] = "active";                 
           	echo $template_menu->render($template_menu_params);
         }
         
@@ -66,31 +66,31 @@
                                     <form class="form form-horizontal" role="form" method="POST">
                                       <div class="form-group">
                                         <div class="col-md-4">
-                                          <label for="exampleInputEmail1">Jméno</label>
+                                          <label for="inputName">Jméno</label>
                                           <input type="text" class="form-control" id="inputName" name="regName" placeholder="Zde napiště své jméno" value="'.$jmeno.'">
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <div class="col-md-4">
-                                          <label for="exampleInputEmail1">Příjmení</label>
+                                          <label for="input2Name">Příjmení</label>
                                           <input type="text" class="form-control" id="input2Name" name="reg2Name" placeholder="Zde vyplňte své příjmení" value="'.$prijmeni.'">
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <div class="col-md-4">
-                                          <label for="exampleInputEmail1">Uživatelské jméno</label>
+                                          <label for="inputNick">Uživatelské jméno</label>
                                           <input type="text" class="form-control" id="inputNick" name="regNick" '.$nemozne.' value="'.$nick.'">
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <div class="col-md-4">
-                                          <label for="exampleInputPassword1">Heslo</label>
+                                          <label for="inputPass">Heslo</label>
                                           <input type="password" class="form-control" id="inputPass" name="regPass" placeholder="Zvolte si heslo které obsahuje alespoň 5 znaků" value="'.$pass.'">
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <div class="col-md-4">
-                                          <label for="exampleInputPassword1">Heslo pro kontrolu</label>
+                                          <label for="inputPass2">Heslo pro kontrolu</label>
                                           <input type="password" class="form-control" id="inputPass2" name="regPass2" placeholder="Napište prosím heslo pro kontrolu" value="'.$pass2.'">
                                         </div>
                                       </div>
@@ -119,10 +119,10 @@
                                                     <div class="caption">
                                                       <div class="btn-group" data-toggle="buttons">
                                                         <label class="btn btn-default active">
-                                                          <input type="radio" name="options0" id="ok" value="ok" autocomplete="off" checked>Ponechat <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                                          <input type="radio" name="options0" id="ok" value="ok" checked>Ponechat <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                                                         </label>
                                                         <label class="btn btn-default">
-                                                          <input type="radio" name="options0" id="delete" value="delete" autocomplete="off">Smazat <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                                          <input type="radio" name="options0" id="delete" value="delete">Smazat <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                                         </label>
                                                       </div>
                                                     </div>
@@ -139,10 +139,10 @@
                                                     <div class="caption">
                                                       <div class="btn-group" data-toggle="buttons">
                                                         <label class="btn btn-default active">
-                                                          <input type="radio" name="options'.$i.'" id="ok" value="ok" autocomplete="off" checked>Ponechat <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                                          <input type="radio" name="options'.$i.'" id="ok'.$i.'" value="ok" checked>Ponechat <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                                                         </label>
                                                         <label class="btn btn-default">
-                                                          <input type="radio" name="options'.$i.'" id="delete" value="delete" autocomplete="off">Smazat <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                                          <input type="radio" name="options'.$i.'" id="delete'.$i.'" value="delete">Smazat <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                                         </label>
                                                       </div>
                                                     </div>
@@ -157,14 +157,14 @@
               
           $Ing_mnz =  '                                   <div class="multi-field">
                                                               <div class="input-group">                                                    
-                                                                <input type="text" class="form-control" name="ingredience[]" id="boxIngred1" placeholder="Zde napište název ingredience" value="">
+                                                                <input type="text" class="form-control" name="ingredience[]" id="boxIngred0" placeholder="Zde napište název ingredience" value="">
                                                                 <span class="input-group-btn"> 
-                                                                  <button type="button" class="btn btn-danger remove-field" href="#">Odstranit <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>                                                     
+                                                                  <button type="button" class="btn btn-danger remove-field">Odstranit <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>                                                     
                                                                 </span>                                                         
                                                               </div><!-- /input-group -->
                                                               <div class="input-group">
                                                               <span class="input-group-addon">Množství <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></span>
-                                                              <input type="text" class="form-control col-md-8" placeholder="i s jednotkou, např. 2lžíce" name="mnozstvi[]" id="boxMnozstvi1" value="">
+                                                              <input type="text" class="form-control col-md-8" placeholder="i s jednotkou, např. 2lžíce" name="mnozstvi[]" id="boxMnozstvi0" value="">
                                                               </div><!-- /input-group -->
                                                            </div>   
                                                           </div>                               
@@ -173,14 +173,14 @@
             {
               $Ing_mnz =  '                               <div class="multi-field">
                                                               <div class="input-group">                                                    
-                                                                <input type="text" class="form-control" name="ingredience[]" id="boxIngred1" placeholder="Zde napište název ingredience" value="'.$ingredience[0].'">
+                                                                <input type="text" class="form-control" name="ingredience[]" id="boxIngred" placeholder="Zde napište název ingredience" value="'.$ingredience[0].'">
                                                                 <span class="input-group-btn"> 
-                                                                  <button type="button" class="btn btn-danger remove-field" href="#">Odstranit <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>                                                     
+                                                                  <button type="button" class="btn btn-danger remove-field">Odstranit <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>                                                     
                                                                 </span>                                                         
                                                               </div><!-- /input-group -->
                                                               <div class="input-group">
                                                               <span class="input-group-addon">Množství <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></span>
-                                                              <input type="text" class="form-control col-md-8" placeholder="i s jednotkou, např. 2lžíce" name="mnozstvi[]" id="boxMnozstvi1" value="'.$mnozstvi[0].'">
+                                                              <input type="text" class="form-control col-md-8" placeholder="i s jednotkou, např. 2lžíce" name="mnozstvi[]" id="boxMnozstvi" value="'.$mnozstvi[0].'">
                                                               </div><!-- /input-group -->
                                                            </div>   
                                                           </div>                               
@@ -191,16 +191,16 @@
         {
           $add =                                '         <div class="multi-field">
                                                               <div class="input-group">                                                    
-                                                                <input type="text" class="form-control" name="ingredience[]" id="boxIngred1" placeholder="Zde napište název ingredience" value="'.$ingredience[$i].'">
+                                                                <input type="text" class="form-control" name="ingredience[]" id="boxIngred'.$i.'" placeholder="Zde napište název ingredience" value="'.$ingredience[$i].'">
                                                                 <span class="input-group-btn"> 
-                                                                  <button type="button" class="btn btn-danger remove-field" href="#">Odstranit <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>                                                     
+                                                                  <button type="button" class="btn btn-danger remove-field">Odstranit <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>                                                     
                                                                 </span>                                                         
                                                               </div><!-- /input-group -->
                                                               <div class="input-group">
                                                               <span class="input-group-addon">Množství <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></span>
-                                                              <input type="text" class="form-control col-md-8" placeholder="i s jednotkou, např. 2lžíce" name="mnozstvi[]" id="boxMnozstvi1" value="'.$mnozstvi[$i].'">
+                                                              <input type="text" class="form-control col-md-8" placeholder="i s jednotkou, např. 2lžíce" name="mnozstvi[]" id="boxMnozstvi'.$i.'" value="'.$mnozstvi[$i].'">
                                                               </div><!-- /input-group -->
-                                                           </div>                                 
+                                                           </div>                                                                                                                                          
                                                 '; 
            $Ing_mnz .=  $add;                                   
                                                 
@@ -222,7 +222,7 @@
                                                        <div class="multi-field-wrapper">
                                                           <div class="multi-fields">
                                                         '.$Ing_mnz.'
-                                                          <button class="btn btn-success add-field" href="#" type="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Další ingredience</button>
+                                                          <button class="btn btn-success add-field" type="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Další ingredience</button>
                                                       </div>   <!-- /multi-fields -->
                                                       
                                                   </div>                                    
@@ -230,19 +230,19 @@
                                               <div class="form-group">
                                                   <div class="col-md-5">
                                                     <label for="postup">Postup</label>
-                                                    <textarea class="ckeditor form-control" rows="3" name="postup" placeholder="Zde popiště jak dát recept dohromady." >'.$postup.'</textarea>
+                                                    <textarea class="ckeditor form-control" id="postup" rows="3" name="postup" placeholder="Zde popiště jak dát recept dohromady." >'.$postup.'</textarea>
                                                   </div>
                                               </div>
                                               <div class="form-group">
                                                 <div class="col-md-4">
                                                   <label for="narocnost">Náročnost (1 = začátečník, 10 = šéfkuchař)</label>
-                                                  <input type="number" name="narocnost" value = "'.$narocnost.'" min="1" max="10">
+                                                  <input type="number" name="narocnost" id="narocnost" value = "'.$narocnost.'" min="1" max="10">
                                                 </div>
                                               </div>
                                               <div class="form-group">
                                                 <div class="col-md-2">
                                                   <label for="doba_pripravy">Doba přípravy</label>
-                                                  <input type="text" class="form-control" id="inputPass" name="doba_pripravy" placeholder="v minuátch" value="'.$doba_pripravy.'">
+                                                  <input type="text" class="form-control" id="doba_pripravy" name="doba_pripravy" placeholder="v minuátch" value="'.$doba_pripravy.'">
                                                 </div>
                                               </div>
                                               <div class="row">
@@ -250,7 +250,7 @@
                                               </div>
                                               <div class="form-group">
                                                 <div class="col-md-5">
-                                                  <label for="doba_pripravy">Fotografie</label>
+                                                  <label for="photo">Fotografie</label>
                                                   <input type="file" name="photo[]" id="photo" multiple>
                                                 </div>
                                               </div>
